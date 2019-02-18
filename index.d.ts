@@ -16,6 +16,17 @@ declare interface TTSNuanceXHROptions extends TTSOptions {
    */
   voice?: string | 'male' | 'female';
 
+  /**
+   * [custom option]
+   * credentials app-key (must be set via configuration or via options)
+   */
+  appKey?: string;
+  /**
+   * [custom option]
+   * credentials app-id (must be set via configuration or via options)
+   */
+  appId?: string;
+
   /** [custom option]
    * format for the synthesized audio
    *

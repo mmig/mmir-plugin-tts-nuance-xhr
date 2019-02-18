@@ -32,7 +32,11 @@ module.exports = {
      * the language/country for TTS
      * @type string
      */
-    "language"
+    "language",
+    /** credentials application key (MUST be set via configuration or options) */
+    "appKey",
+    /** credentials application ID (MUST be set via configuration or options) */
+    "appId"
   ],
   remoteUrls: {
     baseUrl: "https://tts.nuancemobility.net"

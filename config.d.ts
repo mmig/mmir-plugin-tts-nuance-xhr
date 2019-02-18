@@ -15,6 +15,12 @@ export interface TTSNuanceXHRConfigEntry {
 }
 
 export interface TTSNuanceXHRConfig extends MediaManagerPluginEntry {
+
+  /** credentials application ID (MUST be set via configuration or options) */
+  appId?: string;
+  /** credentials application key (MUST be set via configuration or options) */
+  appKey?: string;
+  
   /** OPTIONAL
    * the language/country for TTS
    * @type string
