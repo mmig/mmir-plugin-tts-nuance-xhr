@@ -50,7 +50,7 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 
 		if(!appKey || !appId){
 			var msg = 'Invalid or missing authentification information for appId "'+appId+'" and appKey "'+appKey+'"';
-			console.error(msg);
+			mediaManager._log.error(msg);
 			if(onerror){
 				onerror(msg);
 			}
@@ -197,15 +197,15 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 		var format = types.mp3;
 		var samplerate = 8000;
 
-		if(options && options.format){
+		if(options && /wav|pcm/i.test(options.format)){
 			format = types.wav;
 		}
 
-		if(options && options.rate){
+		if(options && options.sampleRate){
 			//supported sample rates:
 			// WAV:  [8000,16000,22000]
 			// SPEX: [8000,16000]
-			samplerate = options.rate;
+			samplerate = options.sampleRate;
 		}
 
 		if(format === 'wav' || format === 'speex'){//<- append sample-rate, if required for the audio-format (currently only for WAV)
@@ -219,7 +219,7 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 		audioObj._release = function(){
 			//cancel POST request, if one is active:
 			if(this.req){
-				console.log('aborting POST request: '+this.req);
+				if(mediaManager._log.isDebug()) mediaManager._log.log('aborting POST request: '+this.req);
 				this.req.abort();//<- this.req is set below when ajax is send
 				this.req = null;
 			}
@@ -229,8 +229,6 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 		audioObj.release = audioObj._release;
 
 		var ajaxSuccess = function(data, textStatus, jqXHR) {
-
-			//console.log(oReq.response);
 
 			audioObj.req = null;
 
@@ -244,8 +242,7 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 
 			var wavBlob = new Blob( [new DataView(wav)] );
 
-//				console.log("Blob: "+wavBlob.size);
-			//console.log(waveblob);
+//		if(mediaManager._log.isDebug()) mediaManager._log.log("Blob: "+wavBlob.size);
 
 			mediaManager.getWAVAsAudio(wavBlob,
 					null,//<- do not need on-created callback, since we already loaded the audio-data at this point
