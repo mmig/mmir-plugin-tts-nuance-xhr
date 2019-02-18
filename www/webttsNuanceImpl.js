@@ -12,7 +12,7 @@
 define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManager', 'mmirf/util/loadFile'], function(mediaManager, config, lang, ajax){
 
 	/**  @memberOf NuanceWebAudioTTSImpl# */
-	var _pluginName = 'nuanceHttpTextToSpeech';
+	var _pluginName = 'ttsNuanceXhr';
 
 	/**
 	 * separator char for language- / country-code (specific to Nuance language config / codes)
@@ -40,13 +40,13 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 	};
 
 	/**  @memberOf NuanceWebAudioTTSImpl# */
-	var generateTTSURL = function(text, options){
+	var generateTTSURL = function(text, options, onerror){
 
 		//get authentification info from configuration.json:
 		// "<plugin name>": { "appId": ..., "appKey": ... }
 		// -> see Nuance developer account for your app-ID and app-key
-		var appId= options.appId? options.appId : config.get([_pluginName, 'appId'], null);
-		var appKey= options.appKey? options.appKey : config.get([_pluginName, 'appKey'], null);
+		var appId= options.appId || config.get([_pluginName, 'appId'], null);
+		var appKey= options.appKey || config.get([_pluginName, 'appKey'], null);
 
 		if(!appKey || !appId){
 			var msg = 'Invalid or missing authentification information for appId "'+appId+'" and appKey "'+appKey+'"';
@@ -57,7 +57,7 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 			return;////////////////////////////// EARLY EXIT ////////////////////
 		}
 
-		var baseUrl = options.baseUrl? options.baseUrl : config.get([_pluginName, 'baseUrl']);
+		var baseUrl = options.baseUrl || config.get([_pluginName, 'baseUrl']);
 
 		//backwards-compatiblity: lookup config-value for serverBasePath, in addition to baseUrl
 		if(!baseUrl){
@@ -156,7 +156,7 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 	/**  @memberOf NuanceWebAudioTTSImpl# */
 	var sendRequest = function(currSentence, audioObj, options, onend, onerror, oninit){
 
-		var reqUrl = generateTTSURL(null, options);//<- ignore text-argument: the TTS text will be included in the POST body, not the request URL
+		var reqUrl = generateTTSURL(null, options, onerror);//<- ignore text-argument: the TTS text will be included in the POST body, not the request URL
 
 		if(!reqUrl){
 			//error occured when creating the request URL (-> error callback was already called, so just return)
