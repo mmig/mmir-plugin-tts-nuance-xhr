@@ -17,5 +17,8 @@ module.exports = {
      * @type string
      */
     "language"
-  ]
+  ],
+  remoteUrls: {
+    baseUrl: "https://tts.nuancemobility.net"
+  }
 };

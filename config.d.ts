@@ -27,3 +27,7 @@ export interface TTSNuanceXHRConfig extends MediaManagerPluginEntry {
   voice?: string;
 
 }
+
+export enum RemoteUrls {
+  baseUrl = 'https://tts.nuancemobility.net'
+}
