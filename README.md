@@ -18,24 +18,23 @@ Cordova plugin for the MMIR framework that adds Text To Speech (TTS) synthesis v
 
 ...
 
-	"nuanceHttpTextToSpeech": {
+	"ttsNuanceXhr": {
       "appId": <the app ID>,
-      "appKey": <the secret app key>,
-      "baseUrl": "https://tts.nuancemobility.net:443/NMDPTTSCmdServlet/tts"
+      "appKey": <the secret app key>
     },
-	
+
 	....
-	
+
 	"mediaManager": {
     	"plugins": {
     		"browser": [
     			...
-                {"mod": "webAudioInput", "config": "webasrNuanceImpl"},
+                {"mod": "webAudioTextToSpeech", "config": "ttsNuanceXhr"},
                 ...
     		],
     		"cordova": [
     			...
-                {"mod": "webAudioInput", "config": "webasrNuanceImpl"},
+                {"mod": "webAudioTextToSpeech", "config": "ttsNuanceXhr"},
                 ...
     		]
     	}
@@ -51,3 +50,5 @@ supported options for recoginze() / startRecord():
 supported custom options for recoginze() / startRecord():
  * appKey: String
  * appId: String
+ * format: "mp3" (default) | "wav" | "pcm"
+ * sampleRate: (only valid for "wav"/"pcm") 8000 | 16000 | 22000
