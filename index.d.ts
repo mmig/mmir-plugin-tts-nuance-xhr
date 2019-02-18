@@ -15,6 +15,24 @@ declare interface TTSNuanceXHROptions extends TTSOptions {
    * set specific voice for TTS
    */
   voice?: string | 'male' | 'female';
+
+  /** [custom option]
+   * format for the synthesized audio
+   *
+   * NOTE: 'pcm' and 'wav' are synonymous
+   *
+   * @default "mp3"
+   */
+  format?: 'mp3' | 'wav' | 'pcm';//TODO support 'speex' | 'amr'
+
+  /** [custom option]
+   * if format is 'wav' or 'pcm', the sampling rate (Hz) for the audio
+   * (otherwise ignored).
+   *
+   * @default 8000
+   */
+  sampleRate?: 8000 | 16000 | 22000;//TODO valid values for speex: 8000 | 16000 / for amr: ignored
+
 }
 
 declare interface MediaManagerTTSNuanceXHR extends MediaManager {

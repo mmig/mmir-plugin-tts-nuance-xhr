@@ -8,6 +8,22 @@ module.exports = {
   pluginName: "ttsNuanceXhr",
   config: [
     /** OPTIONAL
+     * [custom option]
+     * if format is 'wav' or 'pcm', the sampling rate (Hz) for the audio
+     * (otherwise ignored).
+     * @type 8000 | 16000 | 22000
+     * @default 8000
+     */
+    "sampleRate",
+    /** OPTIONAL
+     * [custom option]
+     * format for the synthesized audio
+     * NOTE: 'pcm' and 'wav' are synonymous
+     * @type 'mp3' | 'wav' | 'pcm'
+     * @default "mp3"
+     */
+    "format",
+    /** OPTIONAL
      * a specific voice for TTS
      * @type string
      */
