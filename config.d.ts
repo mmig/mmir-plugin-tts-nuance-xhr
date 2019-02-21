@@ -1,5 +1,5 @@
 
-import { MediaManagerPluginEntry } from 'mmir-lib';
+import { MediaManagerPluginEntry, SpeechConfigPluginEntry } from 'mmir-lib';
 
 /**
  * (optional) entry "ttsNuanceXhr" in main configuration.json
@@ -10,17 +10,15 @@ import { MediaManagerPluginEntry } from 'mmir-lib';
  * {@link MediaManagerWebInput#recognize} or {@link MediaManagerWebInput#startRecord}
  * (if specified via the options, values will override configuration settings).
  */
-export interface TTSNuanceXHRConfigEntry {
-  ttsNuanceXhr?: TTSNuanceXHRConfig;
+export interface PluginConfig {
+  ttsNuanceXhr?: PluginConfigEntry;
 }
 
-export interface TTSNuanceXHRConfig extends MediaManagerPluginEntry {
-
-  /** credentials application ID (MUST be set via configuration or options) */
-  appId?: string;
-  /** credentials application key (MUST be set via configuration or options) */
-  appKey?: string;
-  
+/**
+ * Speech config entry for the plugin: per language (code) configuration e.g. for
+ * adjusting the language-code or setting a specific voice for the language
+ */
+export interface PluginSpeechConfigEntry extends SpeechConfigPluginEntry {
   /** OPTIONAL
    * the language/country for TTS
    * @type string
@@ -30,7 +28,15 @@ export interface TTSNuanceXHRConfig extends MediaManagerPluginEntry {
    * a specific voice for TTS
    * @type string
    */
-  voice?: string;
+  voice?: 'female' | 'male' | string;
+}
+
+export interface PluginConfigEntry extends MediaManagerPluginEntry {
+
+  /** credentials application ID (MUST be set via configuration or options) */
+  appId?: string;
+  /** credentials application key (MUST be set via configuration or options) */
+  appKey?: string;
 
   /** OPTIONAL
    * [custom option]

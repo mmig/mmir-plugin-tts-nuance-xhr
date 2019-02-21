@@ -23,6 +23,12 @@ module.exports = {
      * @default "mp3"
      */
     "format",
+    /** credentials application key (MUST be set via configuration or options) */
+    "appKey",
+    /** credentials application ID (MUST be set via configuration or options) */
+    "appId"
+  ],
+  speechConfig: [
     /** OPTIONAL
      * a specific voice for TTS
      * @type string
@@ -32,11 +38,7 @@ module.exports = {
      * the language/country for TTS
      * @type string
      */
-    "language",
-    /** credentials application key (MUST be set via configuration or options) */
-    "appKey",
-    /** credentials application ID (MUST be set via configuration or options) */
-    "appId"
+    "language"
   ],
   remoteUrls: {
     baseUrl: "https://tts.nuancemobility.net"

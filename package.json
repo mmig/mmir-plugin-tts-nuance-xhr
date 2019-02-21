@@ -8,8 +8,7 @@
   },
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pluginexport"
+    "build": "createplugincompat ./ && pluginexport ./"
   },
   "repository": {
     "type": "git",
@@ -33,6 +32,14 @@
   },
   "engines": {
     "cordovaDependencies": {}
+  },
+  "mmir": {
+    "compat": {
+      "./www/webttsNuanceImpl.js": {
+        "file": "./www/alt/webttsNuanceImplCompat.js",
+        "type": "tts"
+      }
+    }
   },
   "devDependencies": {
     "mmir-plugin-exports": "git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-exports.git"
