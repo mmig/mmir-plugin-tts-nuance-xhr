@@ -19,7 +19,7 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 	 *
 	 * @memberOf NuanceWebAudioTTSImpl#
 	 */
-	var _langSeparator = '_';
+	var _langSeparator = '-';
 
 	/** @memberOf NuanceWebAudioTTSImpl# */
 	var _getLangParam;
@@ -34,7 +34,7 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 	 */
 	var _getFixedLang = function(options){
 
-		var locale = _getLangParam(options, _langSeparator);
+		var locale = _getLangParam(options, _langSeparator, true);
 
 		return lang.fixLang('nuance', locale);
 	};
