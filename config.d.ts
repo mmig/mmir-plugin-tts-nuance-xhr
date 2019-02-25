@@ -1,4 +1,6 @@
 
+/* plugin config definition: used by mmir-plugin-exports to generate module-config.gen.js */
+
 import { MediaManagerPluginEntry, SpeechConfigPluginEntry } from 'mmir-lib';
 
 /**
@@ -32,7 +34,7 @@ export interface PluginSpeechConfigEntry extends SpeechConfigPluginEntry {
 }
 
 export interface PluginConfigEntry extends MediaManagerPluginEntry {
-  
+
   /** the plugin/module which which will load/use this specific TTS implementation
    * @default mmir-plugin-tts-core-xhr.js
    */
