@@ -32,6 +32,11 @@ export interface PluginSpeechConfigEntry extends SpeechConfigPluginEntry {
 }
 
 export interface PluginConfigEntry extends MediaManagerPluginEntry {
+  
+  /** the plugin/module which which will load/use this specific TTS implementation
+   * @default mmir-plugin-tts-core-xhr.js
+   */
+  mod: 'mmir-plugin-tts-core-xhr.js';
 
   /** credentials application ID (MUST be set via configuration or options) */
   appId?: string;
