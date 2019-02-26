@@ -6,9 +6,9 @@
 
 var _id = "mmir-plugin-tts-nuance-xhr";
 var _paths = {
-  "mmir-plugin-tts-nuance-xhr/webttsNuanceImpl": "www/webttsNuanceImpl.js",
-  "mmir-plugin-tts-nuance-xhr/webttsNuanceImplCompat": "www/alt/webttsNuanceImplCompat.js",
-  "mmir-plugin-tts-nuance-xhr": "www/webttsNuanceImpl.js"
+  "mmir-plugin-tts-nuance-xhr/ttsNuanceXhr": "www/ttsNuanceXhr.js",
+  "mmir-plugin-tts-nuance-xhr/ttsNuanceXhrCompat": "www/alt/ttsNuanceXhrCompat.js",
+  "mmir-plugin-tts-nuance-xhr": "www/ttsNuanceXhr.js"
 };
 var _workers = [];
 var _exportedModules = [

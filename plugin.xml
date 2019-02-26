@@ -23,7 +23,7 @@
 
     <!-- ASR plugin implementation for integration into MMIR framework  -->
     <asset
-        src="www/webttsNuanceImpl.js"
-        target="mmirf/env/media/webttsNuanceImpl.js" />
+        src="www/ttsNuanceXhr.js"
+        target="mmirf/env/media/ttsNuanceXhr.js" />
 
 </plugin>

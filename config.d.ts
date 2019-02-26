@@ -5,7 +5,7 @@ import { MediaManagerPluginEntry, SpeechConfigPluginEntry } from 'mmir-lib';
 
 /**
  * (optional) entry "ttsNuanceXhr" in main configuration.json
- * for settings of webttsNuanceImpl module.
+ * for settings of ttsNuanceXhr module.
  *
  * Some of these settings can also be specified by using the options argument
  * in the TTS functions of {@link MediaManagerWebInput}, e.g.
