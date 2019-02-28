@@ -27,6 +27,11 @@ module.exports = {
     "appKey",
     /** credentials application ID (MUST be set via configuration or options) */
     "appId",
+    /**
+     * the plugin type
+     * @default "tts"
+     */
+    "type",
     /** the plugin/module which which will load/use this specific TTS implementation
      * @default mmir-plugin-tts-core-xhr.js
      */
@@ -35,6 +40,7 @@ module.exports = {
   defaultValues: {
     sampleRate: 8000,
     format: "mp3",
+    type: "tts",
     mod: "mmir-plugin-tts-core-xhr.js"
   },
   speechConfig: [
