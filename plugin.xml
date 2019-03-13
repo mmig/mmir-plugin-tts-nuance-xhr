@@ -18,8 +18,12 @@
         <engine name="cordova" version=">=5.0" />
     </engines>
 
-	<!-- TODO add when adding support for AMR codec to Nuance TTS over HTTPS: -->
-	<!--dependency id="mmir-plugin-encoder-amr" url="." subdir="mmir-plugin-encoder-amr" /-->
+    <!-- MMIR_PLUGIN_MODE: "normal" | "compat" | "webpack" -->
+    <preference name="MMIR_PLUGIN_MODE" default="normal" />
+    <hook src="res/js/before_plugin_install_hook.js" type="before_plugin_install" />
+
+    <!-- TODO add when adding support for AMR codec to Nuance TTS over HTTPS: -->
+    <!--dependency id="mmir-plugin-encoder-amr" url="." subdir="mmir-plugin-encoder-amr" /-->
 
     <!-- ASR plugin implementation for integration into MMIR framework  -->
     <asset
