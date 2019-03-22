@@ -134,7 +134,7 @@
 	var getVoiceList = function(options, callback, _onerror){
 
 		var lang = options && options.language;
-		var voices = options && options.details? langTools.ttsVoices(lang) : langTools.ttsVoiceNames(lang);
+		var voices = options && options.details? _langUtils.ttsVoices(lang) : _langUtils.ttsVoiceNames(lang);
 		if(callback) setTimeout(function(){callback(voices)}, 0);
 	};
 
@@ -167,11 +167,20 @@
 		}
 
 		var langParam;
+		var language = _getFixedLang(options);
 		var voice = _getVoiceParam(options);
 		if(voice){
+
+			//voice may be a voice-name or a filter like "female" / "male" -> find "best matching" voice:
+			var voiceInfo = _langUtils.ttsSelectVoice(language, voice);
+			if(voiceInfo){
+				voice = voiceInfo.name;
+			}
+			//else: will probably trigger error in native code, since voice-parameter did not get recognized!
+
 			langParam = '&voice=' + voice;
 		} else {
-			langParam = '&ttsLang=' + _getFixedLang(options);
+			langParam = '&ttsLang=' + languange;
 		}
 
 		//NOTE: text is not set in URL string, but in POST body
