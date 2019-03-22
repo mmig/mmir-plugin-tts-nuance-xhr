@@ -22,6 +22,8 @@
     <preference name="MMIR_PLUGIN_MODE" default="normal" />
     <hook src="res/js/before_plugin_install_hook.js" type="before_plugin_install" />
 
+    <dependency id="mmir-plugin-speech-nuance-lang" url="git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-speech-nuance-lang.git" commit="master" />
+
     <!-- TODO add when adding support for AMR codec to Nuance TTS over HTTPS: -->
     <!--dependency id="mmir-plugin-encoder-amr" url="." subdir="mmir-plugin-encoder-amr" /-->
 

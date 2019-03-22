@@ -26,6 +26,9 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 	/** @memberOf NuanceWebAudioTTSImpl# */
 	var _getVoiceParam;
 
+	/** @memberOf NuanceWebAudioTTSImpl# */
+	var _langUtils = typeof WEBPACK_BUILD !== 'undefined' && WEBPACK_BUILD? require('mmir-plugin-speech-nuance-lang').languageSupport : cordova.require('mmir-plugin-speech-nuance-lang.languageSupport');
+
 	/**
 	 * HELPER retrieve language setting and apply impl. specific corrections/adjustments
 	 * (i.e. deal with Nuance specific quirks for language/country codes)
@@ -39,8 +42,28 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 		return lang.fixLang('nuance', locale);
 	};
 
+
+	/** @memberOf NuanceWebAudioTTSImpl#
+	 * @see mmir.MediaManager#getSpeechLanguages
+	 */
+	var getLanguageList = function(callback, _onerror){
+
+		if(callback) setTimeout(function(){callback(_langUtils.ttsLanguages())}, 0);
+	};
+
+
+	/** @memberOf NuanceWebAudioTTSImpl#
+	 * @see mmir.MediaManager#getVoices
+	 */
+	var getVoiceList = function(options, callback, _onerror){
+
+		var lang = options && options.language;
+		var voices = options && options.details? langTools.ttsVoices(lang) : langTools.ttsVoiceNames(lang);
+		if(callback) setTimeout(function(){callback(voices)}, 0);
+	};
+
 	/**  @memberOf NuanceWebAudioTTSImpl# */
-	var generateTTSURL = function(text, options, onerror){
+	var generateTTSURL = function(_text, options, onerror){
 
 		//get authentification info from configuration.json:
 		// "<plugin name>": { "appId": ..., "appKey": ... }
@@ -228,7 +251,7 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 		/** @memberOf mmir.env.media.NuanceWebAudio */
 		audioObj.release = audioObj._release;
 
-		var ajaxSuccess = function(data, textStatus, jqXHR) {
+		var ajaxSuccess = function(data, _textStatus, _jqXHR) {
 
 			audioObj.req = null;
 
@@ -297,6 +320,20 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 		 */
 		getCreateAudioFunc: function(){
 			return createAudio;
+		},
+		/**
+		 * @public
+		 * @memberOf NuanceWebAudioTTSImpl.prototype
+		 */
+		getLanguageListFunc: function(){
+			return getLanguageList;
+		},
+		/**
+		 * @public
+		 * @memberOf NuanceWebAudioTTSImpl.prototype
+		 */
+		getVoiceListFunc: function(){
+			return getVoiceList;
 		},
 		/**
 		 * @public

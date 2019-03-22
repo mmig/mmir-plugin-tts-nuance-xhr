@@ -23,15 +23,16 @@
   ],
   "author": "russa",
   "license": "MIT",
-  "peerDependencies": {
-    "mmir-lib": "git+https://gitlab-cos.b.dfki.de/mmir/dev_mmir-lib.git#develop/webpack"
-  },
   "cordova": {
     "id": "mmir-plugin-tts-nuance-xhr",
     "platforms": []
   },
   "engines": {
-    "cordovaDependencies": {}
+    "cordovaDependencies": {
+      "1.0.0": {
+        "git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-speech-nuance-lang.git": ">=1.0.0"
+      }
+    }
   },
   "mmir": {
     "compat": {
@@ -42,6 +43,13 @@
     }
   },
   "devDependencies": {
+    "mmir-lib": "git+https://gitlab-cos.b.dfki.de/mmir/dev_mmir-lib.git#develop/webpack",
     "mmir-plugin-exports": "git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-exports.git"
+  },
+  "peerDependencies": {
+    "mmir-lib": "git+https://gitlab-cos.b.dfki.de/mmir/dev_mmir-lib.git#develop/webpack"
+  },
+  "dependencies": {
+    "mmir-plugin-speech-nuance-lang": "git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-speech-nuance-lang.git"
   }
 }

@@ -8,13 +8,16 @@ var _id = "mmir-plugin-tts-nuance-xhr";
 var _paths = {
   "mmir-plugin-tts-nuance-xhr/ttsNuanceXhr": "www/ttsNuanceXhr.js",
   "mmir-plugin-tts-nuance-xhr/ttsNuanceXhrCompat": "www/alt/ttsNuanceXhrCompat.js",
+  "mmir-plugin-tts-nuance-xhr/ttsNuanceXhrWebpack": "www/alt/ttsNuanceXhrWebpack.js",
   "mmir-plugin-tts-nuance-xhr": "www/ttsNuanceXhr.js"
 };
 var _workers = [];
 var _exportedModules = [
   "mmir-plugin-tts-nuance-xhr"
 ];
-var _dependencies = [];
+var _dependencies = [
+  "mmir-plugin-speech-nuance-lang"
+];
 var _exportedFiles = [];
 var _modes = {};
 function _join(source, target, dict){
