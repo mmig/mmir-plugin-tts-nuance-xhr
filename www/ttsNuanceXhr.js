@@ -104,7 +104,7 @@ define(['mmirf/mediaManager', 'mmirf/configurationManager', 'mmirf/languageManag
 
 			langParam = '&voice=' + voice;
 		} else {
-			langParam = '&ttsLang=' + languange;
+			langParam = '&ttsLang=' + language;
 		}
 
 		//NOTE: text is not set in URL string, but in POST body
