@@ -46,9 +46,6 @@
     "mmir-lib": "git+https://github.com/mmig/mmir-lib.git",
     "mmir-plugin-exports": "git+https://github.com/mmig/mmir-plugin-exports.git"
   },
-  "peerDependencies": {
-    "mmir-lib": "git+https://github.com/mmig/dev_mmir-lib.git#develop/webpack"
-  },
   "dependencies": {
     "mmir-plugin-speech-nuance-lang": "git+https://github.com/mmig/mmir-plugin-speech-nuance-lang.git"
   }
