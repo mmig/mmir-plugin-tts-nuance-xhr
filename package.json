@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-tts-nuance-xhr.git"
+    "url": "https://github.com/mmig/mmir-plugin-tts-nuance-xhr.git"
   },
   "keywords": [
     "tts",
@@ -30,7 +30,7 @@
   "engines": {
     "cordovaDependencies": {
       "1.0.0": {
-        "git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-speech-nuance-lang.git": ">=1.0.0"
+        "git+https://github.com/mmig/mmir-plugin-speech-nuance-lang.git": ">=1.0.0"
       }
     }
   },
@@ -43,13 +43,13 @@
     }
   },
   "devDependencies": {
-    "mmir-lib": "git+https://gitlab-cos.b.dfki.de/mmir/dev_mmir-lib.git#develop/webpack",
-    "mmir-plugin-exports": "git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-exports.git"
+    "mmir-lib": "git+https://github.com/mmig/mmir-lib.git",
+    "mmir-plugin-exports": "git+https://github.com/mmig/mmir-plugin-exports.git"
   },
   "peerDependencies": {
-    "mmir-lib": "git+https://gitlab-cos.b.dfki.de/mmir/dev_mmir-lib.git#develop/webpack"
+    "mmir-lib": "git+https://github.com/mmig/dev_mmir-lib.git#develop/webpack"
   },
   "dependencies": {
-    "mmir-plugin-speech-nuance-lang": "git+https://gitlab-cos.b.dfki.de/mmir/mmir-plugin-speech-nuance-lang.git"
+    "mmir-plugin-speech-nuance-lang": "git+https://github.com/mmig/mmir-plugin-speech-nuance-lang.git"
   }
 }
