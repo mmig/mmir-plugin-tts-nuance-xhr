@@ -8,7 +8,9 @@
   },
   "types": "index.d.ts",
   "scripts": {
-    "build": "createplugincompat ./ && pluginexport ./"
+    "build": "createplugincompat ./ && pluginexport ./",
+    "update:version": "updateversion ./",
+    "update:res": "copycordovascripts res/js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +32,7 @@
   "engines": {
     "cordovaDependencies": {
       "1.0.0": {
-        "git+https://github.com/mmig/mmir-plugin-speech-nuance-lang.git": ">=1.0.0"
+        "mmir-plugin-speech-nuance-lang": ">=1.1.0"
       }
     }
   },
@@ -43,10 +45,10 @@
     }
   },
   "devDependencies": {
-    "mmir-lib": "git+https://github.com/mmig/mmir-lib.git",
-    "mmir-plugin-exports": "git+https://github.com/mmig/mmir-plugin-exports.git"
+    "mmir-lib": "^6.2.0",
+    "mmir-plugin-exports": "^2.4.0"
   },
   "dependencies": {
-    "mmir-plugin-speech-nuance-lang": "git+https://github.com/mmig/mmir-plugin-speech-nuance-lang.git"
+    "mmir-plugin-speech-nuance-lang": "^1.1.0"
   }
 }
