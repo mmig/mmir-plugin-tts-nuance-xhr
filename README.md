@@ -1,5 +1,20 @@
 # mmir-plugin-tts-nuance-web
 
+----
+----
+
+<h1 style="color: red;">
+DEPRECATED this plugin is outdated since Nuance SpeechKit service is discontinued, for a current alternative see <a href="https://github.com/mmig/mmir-plugin-tts-cerence-ws">mmir-plugin-tts-cerence-ws</a>
+</h1>
+
+```diff
+- DEPRECATED Nuance SpeechKit service is discontinued
+- for a current alternative see https://github.com/mmig/mmir-plugin-tts-cerence-ws based on the Cerence WebSocket API
+```
+
+----
+----
+
 Cordova plugin for the MMIR framework that adds Text To Speech (TTS) synthesis via Nuance web services
 
 
